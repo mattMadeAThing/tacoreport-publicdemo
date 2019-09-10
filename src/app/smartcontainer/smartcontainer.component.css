@@ -1,0 +1,12 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: "Sidebar Map Map Map Map Map" "Sidebar Map Map Map Map Map" "Sidebar Map Map Map Map Map";
+}
+
+.Sidebar { grid-area: Sidebar;
+background-clip: whitesmoke; }
+
+.Map { grid-area: Map;
+background-color: gray; }

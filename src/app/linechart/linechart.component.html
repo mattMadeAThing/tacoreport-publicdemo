@@ -1,0 +1,21 @@
+<h1 mat-dialogue-title style = "font-family: Arial, Helvetica, sans-serif; text-align: center">Bytes per taco(public temperature api for testing)</h1>
+<div class = "mat-dialog-actions" style="display: flex; flex-direction: row;">
+  <button mat-button >DayBack </button>
+  <button mat-button >DayForward</button>
+</div>
+<div mat-dialog-content>
+  <canvas baseChart width="700px" height="400px"
+    [datasets]="lineChartData"
+    [labels]="lineChartLabels"
+    [options]="lineChartOptions"
+    [legend] = "true"
+    [colors]="lineChartColors"
+    [chartType]="'line'"
+    [plugins]="lineChartPlugins">
+  </canvas>
+
+</div>
+  <div mat-dialog-actions>
+      <button mat-button (click)= "this.onClose()">Close</button>
+
+</div>

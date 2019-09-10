@@ -1,0 +1,17 @@
+<!--
+  May need to algorithmically change zoom attribute as sensor selection logic gets
+  more complex in the future.
+-->
+<agm-map
+  [latitude] = "mapCenter.lat"
+  [longitude]= 'mapCenter.lng'
+  [zoom]= "12">
+  <div *ngFor= "let plot of tacoPlots" >
+    <agm-marker
+    (markerClick) = "this.onClickMarker(plot)"
+    (mouseOver) = "this.onUpdateMarker(plot);"
+    [opacity] = "this.setOpacity(plot)"
+    [latitude] = "plot.lat"
+    [longitude]= "plot.lng"></agm-marker>
+  </div>
+</agm-map>

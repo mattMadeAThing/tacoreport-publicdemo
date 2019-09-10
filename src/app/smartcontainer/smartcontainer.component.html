@@ -1,0 +1,24 @@
+<!--
+  This container is here to handle all the business logic so the display components can be as
+  dry & reusable as possible.  All state changes in the child components will fire an event that
+  the smartcontainer listens to.  The children then recieve the state changes via template binding.
+  examples of this are events (rowSelect) and (markerSelect) and attributes [activeSensor] and [activeMarkerId]
+-->
+
+<div class="grid-container">
+  <div class = "Sidebar">
+    <app-sensor-sidebar
+    (rowClick) =  this.onClickRowMarker($event)
+    (rowSelect) = "this.recieveRowMarkerUpdate($event)"
+    [activeSensor]= "activeMarkerOrRow"
+    [dataSource] = "tacoData" ></app-sensor-sidebar>
+  </div>
+  <div class = "Map">
+    <app-tacomap
+    (markerClick) = "this.onClickRowMarker($event)"
+    (markerSelect) = "this.recieveRowMarkerUpdate($event)"
+    [activeMarkerId] ="activeMarkerOrRow"
+    [tacoPlots] = "tacoData"
+    [mapCenter] = "mapCenter"></app-tacomap>
+  </div>
+</div>
